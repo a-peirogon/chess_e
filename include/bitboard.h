@@ -21,6 +21,16 @@ enum { white, black };
 #define set_bit(bitboard, square) (bitboard |= (1ULL << square))
 #define get_bit(bitboard, square) (bitboard & (1ULL << square))
 #define pop_bit(bitboard, square) (get_bit(bitboard, square) ? bitboard ^= (1ULL << square) : 0)
+static inline int count_bits(U64 bitboard)
+{
+    int count = 0;
+    while (bitboard)
+    {
+        count++;
+        bitboard &= bitboard - 1;
+    }
+    return count;
+}
 
 void print_bitboard(U64 bitboard);
 

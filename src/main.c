@@ -12,7 +12,6 @@ int main() {
     set_bit(block, g4);
     print_bitboard(block);
 
-    print_bitboard(rook_attacks_on_the_fly(d4, block));
-
+    printf("Bit count: %d\n", count_bits(block));
     return 0;
 }
